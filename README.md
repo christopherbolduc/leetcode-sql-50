@@ -16,30 +16,29 @@ I approached this set with three goals:
 ---
 ## Folder Structure
 
-Problems are organized into folders that match the sequence of the LeetCode SQL study plan:
-
+Problems are grouped into categories following the official LeetCode study plan. Each category has a single `.sql` file containing all problems in that group.
 
 ```
 leetcode_sql_practice/
 ├── images/
 │   └── sql_badge.png
 ├── top_sql_50/
-    ├── 1_select/
-    ├── 2_basic_joins/
-    ├── 3_basic_aggregate_functions/
-    ├── 4_sorting_and_grouping/
-    ├── 5_advanced_select_and_joins/
-    ├── 6_subqueries/
-    ├── 7_advanced_string_functions_regex_clause/
-    ├── LICENSE  
-    └── README.md         
+│   ├── 1_select.sql
+│   ├── 2_basic_joins.sql
+│   ├── 3_basic_aggregate_functions.sql
+│   ├── 4_sorting_and_grouping.sql
+│   ├── 5_advanced_select_and_joins.sql
+│   ├── 6_subqueries.sql
+│   ├── 7_advanced_string_functions_regex_clause.sql
+├── .gitignore
+├── LICENSE
+└── README.md      
 ```
 
-Each `.sql` file is named and numbered according to the original LeetCode order. Inside each file:
-
-- The problem is linked and labeled with its LeetCode ID and difficulty level.
-- The solution is fully commented — both inline (where appropriate) and block comments.
-- Where relevant, alternative approaches and edge-case explanations are included.
+Each solution:
+- Provides the link to the original LeetCode problem
+- Displays the LeetCode ID, title, and difficulty level
+- Includes detailed commentary and (when relevant) alternate solutions or notes on edge cases
 
 ---
 
@@ -48,7 +47,7 @@ Each `.sql` file is named and numbered according to the original LeetCode order.
 Some problems have more than one reasonable solution. When that was the case, I occasionally included:
 
 - **Alternative versions** using different techniques (e.g., `NOT EXISTS`, `JOIN`, window functions).
-- **Real-world adjustments** for situations where LeetCode’s “accepted” answer technically passes test cases, but fails common-sense expectations — like mishandling names or dropping valid email formats.
+- **Real-world adjustments** for situations where LeetCode’s “accepted” answer technically passes test cases, but misses common-sense expectations — like mishandling names or dropping valid email formats.
 
 When relevant, I left comments like:
 
@@ -110,7 +109,7 @@ Example:
 ```
 ## License
 
-This project is licensed under the MIT [`License`](LICENSE)
+This project is licensed under the [MIT License](LICENSE).
 
 If you find these solutions or commentary helpful and reuse them in public projects, I’d appreciate a shout-out or link back!
 > ⚠️ Disclaimer: Problem descriptions and titles are property of LeetCode.  
@@ -120,5 +119,3 @@ If you find these solutions or commentary helpful and reuse them in public proje
 
 **Christopher Bolduc**  
 [LinkedIn](https://www.linkedin.com/in/christopher-david-bolduc/) • [GitHub](https://github.com/christopherbolduc)
-
-Markdown Preview Enhanced: Open Preview to the Side
