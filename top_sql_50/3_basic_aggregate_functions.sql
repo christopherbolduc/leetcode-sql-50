@@ -109,7 +109,7 @@ GROUP BY month, country;
 -- Problem: https://leetcode.com/problems/immediate-food-delivery-ii/description/?envType=study-plan-v2&envId=top-sql-50
 -- LeetCode ID: 1174 | Title: Immediate Food Delivery II | Difficulty: Medium
 
-WITH first_orders as(
+WITH first_orders as (
     SELECT
         customer_id
         , MIN(order_date) as first_order

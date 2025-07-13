@@ -91,7 +91,7 @@ SELECT
     , ROUND(AVG(end_time - start_time)::numeric, 3) as processing_time
 FROM start_end_pairs
 -- Optional: filter out incomplete records
--- WHERE start_time IS NOT NULL AND end_time IS NOT NULLGROUP BY machine_id;
+-- WHERE start_time IS NOT NULL AND end_time IS NOT NULL GROUP BY machine_id;
 GROUP BY machine_id;
 
 -- CTE pairs up start and end timestamps for each machine/process combo.
