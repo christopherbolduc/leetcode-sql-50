@@ -164,7 +164,7 @@ AND (lat, lon) IN (
 -- Problem: https://leetcode.com/problems/department-top-three-salaries/?envType=study-plan-v2&envId=top-sql-50
 -- LeetCode ID: 185 | Title: Department Top Three Salaries | Difficulty: Hard
 
-WITH emp_dep_rank AS(
+WITH emp_dep_rank as(
     SELECT
         dep.name as Department
         , emp.name as Employee

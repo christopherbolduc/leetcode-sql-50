@@ -46,7 +46,7 @@ GROUP BY customer_id;
 
 SELECT
     v.customer_id
-    , COUNT(*) AS count_no_trans
+    , COUNT(*) as count_no_trans
 FROM Visits v
 WHERE NOT EXISTS (
     SELECT 1    -- Checks if a match exists; so the '1' is just a placeholder
@@ -77,7 +77,7 @@ JOIN Weather yes
 -- Problem: https://leetcode.com/problems/average-time-of-process-per-machine/description/?envType=study-plan-v2&envId=top-sql-50
 -- LeetCode ID: 1661 | Title: Average Time of Process per Machine | Difficulty: Easy
 
-WITH start_end_pairs AS (
+WITH start_end_pairs as (
     SELECT
         machine_id
         , process_id,
@@ -88,7 +88,7 @@ WITH start_end_pairs AS (
 )
 SELECT
     machine_id
-    , ROUND(AVG(end_time - start_time)::numeric, 3) AS processing_time
+    , ROUND(AVG(end_time - start_time)::numeric, 3) as processing_time
 FROM start_end_pairs
 -- Optional: filter out incomplete records
 -- WHERE start_time IS NOT NULL AND end_time IS NOT NULLGROUP BY machine_id;

@@ -73,8 +73,8 @@ SELECT DISTINCT num as ConsecutiveNums
 FROM (
   SELECT
     num
-    , LAG(num, 1) OVER (ORDER BY id) AS prev
-    , LAG(num, 2) OVER (ORDER BY id) AS prev2
+    , LAG(num, 1) OVER (ORDER BY id) as prev
+    , LAG(num, 2) OVER (ORDER BY id) as prev2
   FROM Logs
 ) as t
 WHERE num = prev AND num = prev2;
@@ -91,13 +91,13 @@ SELECT
   product_id,
   COALESCE(
     ( SELECT new_price
-      FROM Products AS p2
+      FROM Products as p2
       WHERE p2.product_id = p1.product_id
         AND p2.change_date <= '2019-08-16'
       ORDER BY change_date DESC
       LIMIT 1 )
-  , 10) AS price
-FROM Products AS p1
+  , 10) as price
+FROM Products as p1
 GROUP BY product_id
 ORDER BY product_id;
 
@@ -109,7 +109,7 @@ ORDER BY product_id;
 -- Problem: https://leetcode.com/problems/last-person-to-fit-in-the-bus/description/?envType=study-plan-v2&envId=top-sql-50
 -- LeetCode ID: 1204 | Title: Last Person to Fit in the Bus | Difficulty: Medium
 
-WITH rolling_sum AS (
+WITH rolling_sum as (
     SELECT
         person_name
         , turn
@@ -132,25 +132,25 @@ LIMIT 1;
 -- Problem: https://leetcode.com/problems/count-salary-categories/description/?envType=study-plan-v2&envId=top-sql-50
 -- LeetCode ID: 1907 | Title: Count Salary Categories | Difficulty: Medium
 
-WITH bracket AS (
+WITH bracket as (
 SELECT
     CASE
       WHEN income > 50000 THEN 'High Salary'
       WHEN income BETWEEN 20000 AND 50000 THEN 'Average Salary'
       ELSE 'Low Salary'
-    END AS category
+    END as category
 FROM Accounts
 )
 SELECT
   c.category
-  , COUNT(b.category) AS accounts_count
+  , COUNT(b.category) as accounts_count
 FROM (
-    SELECT 'High Salary' AS category
+    SELECT 'High Salary' as category
     UNION ALL
     SELECT 'Average Salary'
     UNION ALL
     SELECT 'Low Salary'
-) AS c
+) as c
 LEFT JOIN bracket b
     ON c.category = b.category
 GROUP BY c.category

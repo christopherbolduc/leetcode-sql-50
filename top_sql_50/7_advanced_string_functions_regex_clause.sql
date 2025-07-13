@@ -21,7 +21,7 @@ ORDER BY user_id;
 -- Output:
 | user_id | name      |
 | ------- | --------- |
-| 222     | Marry Ann |  -- Here is the fail!
+| 222     | Marry Ann |  -- Here is the "fail"!
 | 593     | Dalia     |
 | 944     | Freida    |
 
@@ -38,7 +38,7 @@ ORDER BY user_id;
 -- In order to pass all 22 here you have to do this mess:
 SELECT
     user_id
-    , UPPER(LEFT(name, 1)) || LOWER(SUBSTRING(name FROM 2)) AS name     -- || joins strings; builds Title Case manually
+    , UPPER(LEFT(name, 1)) || LOWER(SUBSTRING(name FROM 2)) as name     -- || joins strings; builds Title Case manually
 FROM Users
 ORDER BY user_id;
 
@@ -96,7 +96,7 @@ WHERE conditions ILIKE 'DIAB1%'
 -- Problem: https://leetcode.com/problems/delete-duplicate-emails/description/?envType=study-plan-v2&envId=top-sql-50
 -- LeetCode ID: 196 | Title: Delete Duplicate Emails | Difficulty: Easy
 
-WITH ranked_emails AS (
+WITH ranked_emails as (
     SELECT
         id
         , ROW_NUMBER() OVER (PARTITION BY email ORDER BY id) as rn
@@ -117,14 +117,14 @@ WHERE id IN (
 -- Problem: https://leetcode.com/problems/second-highest-salary/description/?envType=study-plan-v2&envId=top-sql-50
 -- LeetCode ID: 176 | Title: Second Highest Salary | Difficulty: Medium
 
-WITH rankings AS (
+WITH rankings as (
     SELECT
         salary
         , DENSE_RANK() OVER (ORDER BY salary DESC) as rank
     FROM Employee
 )
 
-(SELECT salary AS SecondHighestSalary
+(SELECT salary as SecondHighestSalary
  FROM rankings
  WHERE rank = 2
  LIMIT 1
@@ -132,7 +132,7 @@ WITH rankings AS (
 
 UNION ALL
 
-(SELECT NULL AS SecondHighestSalary
+(SELECT NULL as SecondHighestSalary
  WHERE NOT EXISTS (
      SELECT 1 FROM rankings WHERE rank = 2
  )
@@ -203,7 +203,7 @@ WHERE mail ~* '^[a-z][a-z0-9_.-]*@leetcode\.com$'
 -- Output:
 | user_id | name    | mail                 |
 | ------- | ------- | -------------------- |
-| 1       | Winston | winston@leetcode.COM |    -- Here is the fail!
+| 1       | Winston | winston@leetcode.COM |    -- Here is the "fail"!
 
 -- Expected:
 | user_id | name | mail |
