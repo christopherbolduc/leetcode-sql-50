@@ -90,6 +90,7 @@ WHERE conditions ILIKE 'DIAB1%'
 -- ILIKE is case-insensitive LIKE, but LIKE works here too.
 -- First condition: string starts with 'DIAB1'.
 -- Second condition: 'DIAB1' appears at the start of any word after a space.
+-- This works because LIKE does not treat '+' as a special character.
 
 --------------------------------------------------------------
 -- Problem: https://leetcode.com/problems/delete-duplicate-emails/description/?envType=study-plan-v2&envId=top-sql-50
@@ -209,7 +210,7 @@ WHERE mail ~* '^[a-z][a-z0-9_.-]*@leetcode\.com$'
 | ------- | ---- | ---- |
 
 -- But winston@leetcode.COM is a valid email address so if this were real-life,
--- leetcode's 'correct' solution would trash valid email addresses:
+-- leetcode's 'correct' solution would drop valid email addresses:
 
 SELECT *
 FROM Users

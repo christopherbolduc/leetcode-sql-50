@@ -44,12 +44,12 @@ Each solution:
 
 ## Why I Wrote It This Way
 
-Some problems have more than one reasonable solution. When that was the case, I occasionally included:
+Some problems have more than one reasonable solution. When that was the case, I included:
 
 - **Alternative versions** using different techniques (e.g., `NOT EXISTS`, `JOIN`, window functions).
 - **Real-world adjustments** for situations where LeetCode’s “accepted” answer technically passes test cases, but misses common-sense expectations — like mishandling names or dropping valid email formats.
 
-When relevant, I left comments like:
+For example, in this case, LeetCode's version misses this patient with type 1 diabetes:
 
 ```sql
 -- This passes 8/9 test cases but "fails" here:
@@ -63,11 +63,11 @@ When relevant, I left comments like:
 -- Output:
 | patient_id | patient_name | conditions    |
 | ---------- | ------------ | ------------- |
-| 1          | George       | ACNE +DIAB100 |
+| 1          | George       | ACNE +DIAB100 |   -- I include poor George
 
 -- Expected:
 | patient_id | patient_name | conditions |
-| ---------- | ------------ | ---------- |
+| ---------- | ------------ | ---------- |      -- LeetCode misses him
 
 -- Patient 1 clearly has a diabetes-related condition,
 -- but leetcode rejects it because 'DIAB1' isn’t space-separated.
@@ -91,7 +91,10 @@ SELECT
 FROM World
 ```
 ### Consistent aliasing
-I use `as` for all column aliases — even when optional — to improve clarity and avoid ambiguity.
+
+I use `as` (lowercase) for all column aliases — even when optional — to improve clarity and avoid ambiguity.
+
+The lowercase `as` is a personal style choice: it keeps the query quieter and more readable.
 
 ### Window functions
 Used when appropriate for ranking, partitioned aggregations, or rolling calculations. Each usage includes a comment explaining its role.
