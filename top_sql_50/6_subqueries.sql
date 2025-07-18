@@ -181,4 +181,5 @@ WHERE DR <= 3;
 
 -- CTE ranks employees within each department by salary using DENSE_RANK.
 -- Final SELECT filters to only the top 3 salaries per department.
--- DENSE_RANK includes ties — so more than 3 employees appear if there are duplicate salaries.
+-- DENSE_RANK includes ties but does not skip rank values (unlike RANK)
+-- So more than 3 employees appear if there are duplicate salaries.
