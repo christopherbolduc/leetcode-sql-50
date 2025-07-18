@@ -141,6 +141,7 @@ SELECT
     END as category
 FROM Accounts
 )
+
 SELECT
   c.category
   , COUNT(b.category) as accounts_count
@@ -161,7 +162,7 @@ ORDER BY
         WHEN 'Low Salary' THEN 3
     END;
 
--- First CTE assigns each account to a salary category using CASE.
+-- CTE assigns each account to a salary category using CASE.
 -- Derived table (c) lists all categories to guarantee all are represented in the final output.
 -- LEFT JOIN ensures we still see categories with zero accounts.
 -- Final output includes an ORDER BY to show a logical order from High to Low.
