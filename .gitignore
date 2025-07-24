@@ -1,0 +1,27 @@
+# VS Code settings
+.vscode/
+
+# OS junk
+.DS_Store
+
+# Jupyter and notebook metadata
+.ipynb_checkpoints/
+
+# Conda/venv environments
+.env
+.venv/
+env/
+venv/
+
+# Local data and results
+data/
+*.csv
+*.tsv
+*.xlsx
+*.db
+*.sqlite
+
+# Logs and temporary files
+*.log
+*.tmp
+*.swp
