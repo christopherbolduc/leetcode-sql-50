@@ -11,7 +11,7 @@ I approached this set with three goals:
 
 1. Write clean, readable SQL.
 2. Add meaningful comments that show understanding — not just what the query *does*, but *why* it’s written that way.
-3. Refactor when LeetCode’s “accepted” answer seemed incomplete, unrealistic, or semantically off.
+3. Refactor when LeetCode’s "accepted" answer seemed incomplete, unrealistic, or semantically off.
 
 ---
 ## Folder Structure
@@ -47,7 +47,7 @@ Each solution:
 Some problems have more than one reasonable solution. When that was the case, I included:
 
 - **Alternative versions** using different techniques (e.g., `NOT EXISTS`, `JOIN`, window functions).
-- **Real-world adjustments** for situations where LeetCode’s “accepted” answer technically passes test cases, but misses common-sense expectations — like mishandling names or dropping valid email formats.
+- **Real-world adjustments** for situations where LeetCode’s "accepted" answer technically passes test cases, but misses common-sense expectations — like mishandling names or dropping valid email formats.
 
 For example, in this case, LeetCode's version misses this patient with type 1 diabetes:
 
